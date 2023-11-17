@@ -9,5 +9,5 @@ issues:
   keyGroupIndex: 1
   summaryGroupIndex: 2
   trackerUrl: https://my-jira.com/issues
-  aggregate: true
+  aggregate: false
   aggregationStatus: RELEASED
