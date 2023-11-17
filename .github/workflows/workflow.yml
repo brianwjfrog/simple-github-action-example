@@ -25,7 +25,7 @@ jobs:
           # Ping the server
           jf rt ping
           # Collect environment variables for the build
-          jf rt sample-core-service-api-1.0.2511.zip brianw-generic-local/ --detailed-summary --fail-no-op
+          jf rt u sample-core-service-api-1.0.2511.zip brianw-generic-local/ --detailed-summary --fail-no-op
           # Collect VCS details from git and add them to the build
           jf rt build-add-git
           # Publish build info
