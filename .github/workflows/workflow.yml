@@ -27,6 +27,6 @@ jobs:
       - name: Publish build info
         run: |          
           # Collect VCS details from git and add them to the build
-          jf rt build-add-git --config config.yaml
+          jf rt build-add-git
           # Publish build info
           jf rt bp --detailed-summary
