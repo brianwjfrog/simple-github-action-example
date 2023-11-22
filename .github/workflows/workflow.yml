@@ -8,7 +8,9 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Create zip
-        run: zip -r -q folder.zip folder1
+        run: |
+          zip -r -q folder.zip folder1
+          ls -ltr
         
       - uses: jfrog/setup-jfrog-cli@v3
         env:
