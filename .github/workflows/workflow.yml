@@ -7,6 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Create zip
+        run: zip -r -q folder.zip folder1
+        
       - uses: jfrog/setup-jfrog-cli@v3
         env:
           # JFrog platform url (for example: https://acme.jfrog.io)
