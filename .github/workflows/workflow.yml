@@ -7,6 +7,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Create zip
+        run: |
+          zip -r -q folder.zip folder1
+          ls -ltr
+          
+      - name: Create tar
+        run: |
+          tar -czvf folder.tar.gz folder2
+          ls -ltr          
       - uses: jfrog/setup-jfrog-cli@v3
         env:
           # JFrog platform url (for example: https://acme.jfrog.io)
@@ -23,7 +32,10 @@ jobs:
         run: jf rt ping
 
       - name: Upload to Artifactory
-        run: jf rt u sample-core-service-api-1.0.2511.zip brianw-generic-local/ --detailed-summary --fail-no-op
+        run: |
+          jf rt upload "*.zip" brianw-generic-local/ --detailed-summary --fail-no-op
+          jf rt upload "*.tar.gz" brianw-generic-local/ --detailed-summary --fail-no-op
+          
       - name: Publish build info
         run: |          
           # Collect VCS details from git and add them to the build
