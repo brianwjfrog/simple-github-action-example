@@ -35,10 +35,10 @@ jobs:
         run: |
           jf rt upload "*.zip" brianw-generic-local/ --detailed-summary --fail-no-op
           jf rt upload "*.tar.gz" brianw-generic-local/ --detailed-summary --fail-no-op
-          
+          jf rt bp --detailed-summary
       - name: Publish build info
         run: |          
           # Collect VCS details from git and add them to the build
-          jf rt build-add-git
+          #jf rt build-add-git
           # Publish build info
-          jf rt bp --detailed-summary
+          #jf rt bp --detailed-summary
