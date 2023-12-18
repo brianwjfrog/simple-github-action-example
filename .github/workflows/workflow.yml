@@ -33,12 +33,12 @@ jobs:
 
       - name: Upload to Artifactory
         run: |
-          jf rt upload "*.zip" brianw-generic-local/ --detailed-summary --fail-no-op
-          jf rt upload "*.tar.gz" brianw-generic-local/ --detailed-summary --fail-no-op
-          jf rt bp --detailed-summary
+          jf rt upload "*.zip" brianw-generic-local/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
+          jf rt upload "*.tar.gz" brianw-generic-local/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
+          #jf rt bp --detailed-summary
       - name: Publish build info
         run: |          
           # Collect VCS details from git and add them to the build
-          #jf rt build-add-git
-          # Publish build info
-          #jf rt bp --detailed-summary
+          jf rt build-add-git --build-name $BUILD_NAME --build-number $BUILD_NUMBER
+          # Publish build info 
+          jf rt bp --detailed-summary --build-name $BUILD_NAME --build-number $BUILD_NUMBER
