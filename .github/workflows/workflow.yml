@@ -9,12 +9,12 @@ jobs:
       
       - name: Create zip
         run: |
-          zip -r -q folder.zip folder1
+          zip -r -q folder${{ github.run_number }}.zip folder1
           ls -ltr
           
       - name: Create tar
         run: |
-          tar -czvf folder.tar.gz folder2
+          tar -czvf folder${{ github.run_number }}.tar.gz folder2
           ls -ltr          
       - uses: jfrog/setup-jfrog-cli@v3
         env:
