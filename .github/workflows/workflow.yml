@@ -33,8 +33,8 @@ jobs:
 
       - name: Upload to Artifactory
         run: |
-          jf rt upload "*.zip" brian-generic-test/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
-          jf rt upload "*.tar.gz" brian-generic-test/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
+          jf rt upload "*.zip" brianw-generic-local/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
+          jf rt upload "*.tar.gz" brianw-generic-local/ --detailed-summary --fail-no-op --build-name $BUILD_NAME --build-number $BUILD_NUMBER
           #jf rt bp --detailed-summary
       - name: Publish build info
         run: |          
