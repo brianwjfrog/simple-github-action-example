@@ -12,6 +12,16 @@ jobs:
     # "frogbot" GitHub environment can approve the pull request to be scanned.
     environment: frogbot
     steps:
+      - name: Run JFrog CLI
+        run: |
+          # Ping the server
+          jf rt ping
+          # Collect environment variables for the build
+          jf rt bce
+          # Collect VCS details from git and add them to the build
+          jf rt bag
+          # Publish build info
+          jf rt bp
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
